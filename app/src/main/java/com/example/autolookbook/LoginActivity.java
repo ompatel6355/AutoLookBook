@@ -1,55 +1,78 @@
 package com.example.autolookbook;
 
 
-
-
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-
-
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextEmail;
     private EditText editTextPassword;
-    private Button buttonLogin;
+    public Button buttonLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Initialize UI components
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
 
+        // Check if the user is already logged in
+        if (userIsLoggedIn()) {
+            navigateToMainActivity();
+        }
+
+        // Set click listener for the login button
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Here you would handle the login logic, possibly validating input
-                // and then logging in the user by checking with your backend server.
-                String email = editTextEmail.getText().toString();
-                String password = editTextPassword.getText().toString();
-                if(validateLogin(email, password)) {
-                    // Proceed with login process
-                    Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Show error message
-                    Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
-                }
+                performLogin();
             }
         });
-
-        // Set up create account text click listener if needed
     }
 
-    private boolean validateLogin(String email, String password) {
-        // Add validation logic here (e.g., check if fields are not empty, etc.)
-        return !email.isEmpty() && !password.isEmpty();
+    private void performLogin() {
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+
+        // Here, you should add your logic to verify login credentials, possibly against a server
+        // For this example, let's assume any non-empty credentials are "valid"
+        if (!email.isEmpty() && !password.isEmpty()) {
+            // Login successful, save login state and navigate to MainActivity
+            saveLoginState();
+            navigateToMainActivity();
+        } else {
+            // Login failed, show a message to the user
+            Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void saveLoginState() {
+        // Save login state (for simplicity, using SharedPreferences here)
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("LoggedIn", true);
+        editor.apply();
+    }
+
+    private boolean userIsLoggedIn() {
+        // Check login state (using SharedPreferences)
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        return sharedPreferences.getBoolean("LoggedIn", false);
+    }
+
+    private void navigateToMainActivity() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish(); // Finish LoginActivity so the user can't go back to it
     }
 }
