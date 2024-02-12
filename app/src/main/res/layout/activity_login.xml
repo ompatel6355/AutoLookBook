@@ -10,7 +10,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:contentDescription="@string/logo"
+            android:contentDescription="@string/logo_content_description"
             android:src="@drawable/ic_launcher_background" /> <!-- Replace with your logo drawable -->
 
     <EditText
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/imageViewLogo"
             android:layout_marginTop="32dp"
-            android:hint="@string/email"
+            android:hint="@string/email_hint"
             android:inputType="textEmailAddress" />
 
     <EditText
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/editTextEmail"
             android:layout_marginTop="16dp"
-            android:hint="@string/password"
+            android:hint="@string/password_hint"
             android:inputType="textPassword" />
 
     <Button
@@ -38,7 +38,7 @@
             android:layout_below="@id/editTextPassword"
             android:layout_marginTop="24dp"
             android:background="#000000"
-            android:text="@string/login"
+            android:text="@string/login_button_text"
             android:textColor="#FFFFFF" />
 
     <TextView
@@ -48,7 +48,7 @@
             android:layout_below="@id/buttonLogin"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:text="@string/create_account"
+            android:text="@string/create_account_text"
             android:textColor="#000000" />
 
 </RelativeLayout>
