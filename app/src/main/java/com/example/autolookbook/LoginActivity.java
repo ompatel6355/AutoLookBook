@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (isValid) {
             // Login successful, navigate to MainActivity
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, RecyclerView.class);
             startActivity(intent);
             finish(); // Finish LoginActivity so user can't go back to it after logging in
         } else {
