@@ -24,6 +24,9 @@
 
         <!-- LoginActivity -->
         <activity android:name=".LoginActivity" />
+        <activity android:name=".RecyclerView">
+            <!-- Intent filters can be here if needed -->
+        </activity>
 
     </application>
 
