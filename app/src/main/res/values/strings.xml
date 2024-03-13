@@ -2,9 +2,9 @@
 
 
     -- Creator Info
-    <string name="creator_1">Jasdeep Singh (200540018) </string>
-    <string name="creator_2">Priyanka Saxena (200583643) </string>
-    <string name="creator_3">Om Patel (200582213) </string>
+    <string name="creator_1">Jasdeep Singh (200540018)</string>
+    <string name="creator_2">Priyanka Saxena (200583643)</string>
+    <string name="creator_3">Om Patel (200582213)</string>
 
     -- Headers
     <string name="app_name">AutoLookBook</string>
@@ -73,5 +73,11 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+
+<!--    <string name="about_us_content">Your "About Us" page content goes here. You can include information about your app, its purpose, the development team, acknowledgements, or any other information you'd like to share with your users.</string>-->
+<!--    <string name="navigation_drawer_open">Open navigation drawer</string>-->
+<!--    <string name="navigation_drawer_close">Close navigation drawer</string>-->
+
+
 
 </resources>
