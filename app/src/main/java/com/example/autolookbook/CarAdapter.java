@@ -1,19 +1,18 @@
 package com.example.autolookbook;
 
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-
-public class RecyclerView extends androidx.recyclerview.widget.RecyclerView.Adapter<RecyclerView.CarViewHolder> {
-
+public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     private final List<Car> carList;
 
-    public RecyclerView(List<Car> carList) {
+    public CarAdapter(List<Car> carList) {
         this.carList = carList;
     }
 
@@ -29,6 +28,7 @@ public class RecyclerView extends androidx.recyclerview.widget.RecyclerView.Adap
         Car car = carList.get(position);
         holder.carName.setText(car.getName());
         holder.carDescription.setText(car.getDescription());
+        // Assume getImageUrl() returns a drawable resource ID. If it's a URL, you'll need to use an image loading library.
         holder.carImage.setImageResource(car.getImageResource());
     }
 
@@ -37,7 +37,7 @@ public class RecyclerView extends androidx.recyclerview.widget.RecyclerView.Adap
         return carList.size();
     }
 
-    static class CarViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
+    static class CarViewHolder extends RecyclerView.ViewHolder {
         ImageView carImage;
         TextView carName, carDescription;
 

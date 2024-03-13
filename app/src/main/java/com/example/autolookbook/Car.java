@@ -3,15 +3,16 @@ package com.example.autolookbook;
 public class Car {
     private String name;
     private String description;
-    private int imageUrl; // Assuming drawable resources for simplicity
+    private int imageResource; // Variable to hold the image resource ID
 
-    // Constructor, getters, and setters
-    public Car(String name, String description, int imageUrl) {
+    // Constructor
+    public Car(String name, String description, int imageResource) {
         this.name = name;
         this.description = description;
-        this.imageUrl = imageUrl;
+        this.imageResource = imageResource; // Initialize the image resource ID
     }
 
+    // Getter methods
     public String getName() {
         return name;
     }
@@ -20,7 +21,9 @@ public class Car {
         return description;
     }
 
-    public int getImageUrl() {
-        return imageUrl;
+    public int getImageResource() {
+        return imageResource; // Getter method for the image resource ID
     }
+
+    // You might have other methods here as needed
 }
