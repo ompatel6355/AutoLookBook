@@ -46,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             } else if (itemId == R.id.navigation_about_us) {
 
-                Toast.makeText(MainActivity.this, "About Us Selected", Toast.LENGTH_SHORT).show();
-
+//                Toast.makeText(MainActivity.this, "About Us Selected", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, AboutUSActivity.class);
+                        startActivity(intent);
             } else if (itemId == R.id.navigation_notifications) {
                 Toast.makeText(MainActivity.this, "No New Notifications", Toast.LENGTH_SHORT).show();
             }

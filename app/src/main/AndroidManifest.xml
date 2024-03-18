@@ -11,7 +11,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.AutoLookBook"
             tools:targetApi="31">
-
+        <activity android:name=".AboutUSActivity"/>
         <activity
                 android:name=".IntroActivity"
                 android:exported="true"
@@ -30,6 +30,7 @@
         <activity
                 android:name=".MainActivity"
                 android:theme="@style/Theme.AutoLookBook"/>
+        <activity android:name=".MoreInfoActivity"/>
     </application>
 
 </manifest>
