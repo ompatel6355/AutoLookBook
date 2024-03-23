@@ -30,7 +30,7 @@
         <activity
                 android:name=".MainActivity"
                 android:theme="@style/Theme.AutoLookBook"/>
-        <activity android:name=".MoreInfoActivity"/>
+<!--        <activity android:name="."/>-->
     </application>
 
 </manifest>

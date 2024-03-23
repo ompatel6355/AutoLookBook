@@ -1,6 +1,7 @@
 package com.example.autolookbook;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle drawerToggle;
     ImageView carImage;
     TextView carName, carDescription;
+    boolean isAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
+        SharedPreferences prefs = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        isAdmin = prefs.getBoolean("isAdmin", false);
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
