@@ -1,8 +1,12 @@
 package com.example.autolookbook;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CarDetailActivity extends AppCompatActivity {
@@ -16,6 +20,7 @@ public class CarDetailActivity extends AppCompatActivity {
         ImageView carImage = findViewById(R.id.detail_car_image);
         TextView carNameText = findViewById(R.id.detail_car_name);
         TextView carDescriptionText = findViewById(R.id.detail_car_description);
+        Button moreInfoButton = findViewById(R.id.moreInfoButton);
 
         // Retrieve data from the intent
         String carName = getIntent().getStringExtra("CAR_NAME");
@@ -34,5 +39,19 @@ public class CarDetailActivity extends AppCompatActivity {
             // carImage.setImageResource(R.drawable.default_image); // Uncomment and replace 'default_image' with your actual default image resource
             carImage.setVisibility(ImageView.GONE); // Or hide the ImageView if no default image is desired
         }
+
+        // Set OnClickListener for the More Info button
+        moreInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Implement the behavior you want to execute when the button is clicked
+                // For example, navigate to a new activity, show a dialog, etc.
+                // Replace the example with your actual behavior
+                // For demonstration, let's just show a toast message
+//                Toast.makeText(CarDetailActivity.this, "More Info button clicked!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(CarDetailActivity.this, CarActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="car_name" type="id"/>
+    <item name="about_us_text_view" type="id"/>
+</resources>
