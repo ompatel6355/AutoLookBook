@@ -74,10 +74,9 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
 
-<!--    <string name="about_us_content">Your "About Us" page content goes here. You can include information about your app, its purpose, the development team, acknowledgements, or any other information you'd like to share with your users.</string>-->
-<!--    <string name="navigation_drawer_open">Open navigation drawer</string>-->
-<!--    <string name="navigation_drawer_close">Close navigation drawer</string>-->
-
+    <!--    <string name="about_us_content">Your "About Us" page content goes here. You can include information about your app, its purpose, the development team, acknowledgements, or any other information you'd like to share with your users.</string>-->
+    <!--    <string name="navigation_drawer_open">Open navigation drawer</string>-->
+    <!--    <string name="navigation_drawer_close">Close navigation drawer</string>-->
 
 
 </resources>
