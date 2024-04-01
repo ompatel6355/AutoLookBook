@@ -12,12 +12,24 @@
             android:title="@string/title_notifications"/>
 
     <item
-        android:id="@+id/navigation_about_us"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="About us"/>
+            android:id="@+id/navigation_about_us"
+            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:title="About us"/>
     <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:icon="@drawable/profile"
             android:title="Profile" />
+
+    <item
+            android:id="@+id/finance"
+            android:icon="@drawable/finance"
+            android:title="Finance" />
+    <item
+            android:id="@+id/Test_Drive"
+            android:icon="@drawable/testdrive"
+            android:title="Test Drive" />
+
+
+
 
 </menu>

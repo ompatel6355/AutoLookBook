@@ -48,4 +48,5 @@ public class RecyclerView extends androidx.recyclerview.widget.RecyclerView.Adap
             carDescription = view.findViewById(R.id.carDescription);
         }
     }
+
 }

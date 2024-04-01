@@ -1,5 +1,6 @@
 package com.example.autolookbook;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ public class CarActivity extends AppCompatActivity {
     private List<Car> carList = new ArrayList<>();
     private androidx.recyclerview.widget.RecyclerView carRecyclerView;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

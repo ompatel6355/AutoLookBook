@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CarDetailActivity extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class CarDetailActivity extends AppCompatActivity {
         TextView carNameText = findViewById(R.id.detail_car_name);
         TextView carDescriptionText = findViewById(R.id.detail_car_description);
         Button moreInfoButton = findViewById(R.id.moreInfoButton);
+        FloatingActionButton floatingActionButton = findViewById(R.id.floatingActionButton);
 
         // Retrieve data from the intent
         String carName = getIntent().getStringExtra("CAR_NAME");
@@ -40,17 +42,30 @@ public class CarDetailActivity extends AppCompatActivity {
             carImage.setVisibility(ImageView.GONE); // Or hide the ImageView if no default image is desired
         }
 
+        // Check if the user is an admin, then show FloatingActionButton
+        boolean isAdmin = getIntent().getBooleanExtra("isAdmin", false);
+        if (isAdmin) {
+            floatingActionButton.setVisibility(View.VISIBLE);
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Add your action here when the FloatingActionButton is clicked
+                    // For example, you can open a dialog to add a new car
+                    // Or start a new activity to add a new car
+                    // For demonstration, let's just show a toast message
+                    Toast.makeText(CarDetailActivity.this, "FloatingActionButton clicked!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            floatingActionButton.setVisibility(View.GONE);
+        }
+
         // Set OnClickListener for the More Info button
         moreInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implement the behavior you want to execute when the button is clicked
-                // For example, navigate to a new activity, show a dialog, etc.
-                // Replace the example with your actual behavior
-                // For demonstration, let's just show a toast message
-//                Toast.makeText(CarDetailActivity.this, "More Info button clicked!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(CarDetailActivity.this, CarActivity.class);
-                startActivity(intent);
+
+                Toast.makeText(CarDetailActivity.this, "More Info button clicked!", Toast.LENGTH_SHORT).show();
             }
         });
     }

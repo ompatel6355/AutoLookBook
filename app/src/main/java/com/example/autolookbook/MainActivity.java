@@ -55,11 +55,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             } else if (itemId == R.id.navigation_about_us) {
 
-                Toast.makeText(MainActivity.this, "About Us Selected", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "About Us Selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, AboutUSActivity.class);
+                startActivity(intent);
 
-            } else if (itemId == R.id.navigation_notifications) {
-                Toast.makeText(MainActivity.this, "No New Notifications", Toast.LENGTH_SHORT).show();
+            } else if (itemId == R.id.nav_profile) {
+                Toast.makeText(MainActivity.this, "profile clicked", Toast.LENGTH_SHORT).show();
             }
+            else if (itemId == R.id.Test_Drive) {
+//                Toast.makeText(MainActivity.this, "Test drive is not available", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, TestDrive.class);
+                startActivity(intent);
+            }
+            else if (itemId == R.id.finance) {
+                Toast.makeText(MainActivity.this, "Loan options Available", Toast.LENGTH_SHORT).show();
+            }
+
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
