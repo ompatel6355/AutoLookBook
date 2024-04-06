@@ -32,9 +32,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView= (ListView) findViewById(R.id.carListView);
-        CustomCarListAdapter carListAdapter = new CustomCarListAdapter(getApplicationContext(),carList, carImages);
-        listView.setAdapter(carListAdapter);
+        {
+            // Generate mock data for the list of cars
+            List<Car> carDetailList = CarMockData.generateMockCars();
+
+            listView = (ListView) findViewById(R.id.carListView);
+            CustomCarListAdapter carListAdapter = new CustomCarListAdapter(this, carDetailList);
+            listView.setAdapter(carListAdapter);
+        }
 
 
 
@@ -60,7 +65,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
 
             } else if (itemId == R.id.nav_profile) {
-                Toast.makeText(MainActivity.this, "profile clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            } else if (itemId == R.id.navigation_notifications) {
+                // Display no new notifications message
+                Toast.makeText(MainActivity.this, "No new notifications", Toast.LENGTH_SHORT).show();
             }
             else if (itemId == R.id.Test_Drive) {
 //                Toast.makeText(MainActivity.this, "Test drive is not available", Toast.LENGTH_SHORT).show();
@@ -68,7 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             else if (itemId == R.id.finance) {
-                Toast.makeText(MainActivity.this, "Loan options Available", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, FinancingOptionsActivity.class);
+                startActivity(intent);
+                // Toast.makeText(MainActivity.this, "Loan options Available", Toast.LENGTH_SHORT).show();
             }
 
             drawerLayout.closeDrawer(GravityCompat.START);

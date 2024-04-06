@@ -1,51 +1,409 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="16dp">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ImageView
-            android:id="@+id/detail_car_image"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/carImageView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp" />
 
-    <TextView
-            android:id="@+id/detail_car_name"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/carNameTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:layout_below="@id/detail_car_image"
-            android:paddingTop="8dp" />
+            android:textStyle="bold"
+            android:text="Car Name"
+            android:layout_below="@id/carImageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp" />
 
-    <TextView
-            android:id="@+id/detail_car_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_below="@id/detail_car_name"
-            android:paddingTop="4dp" />
-
-    <Button
-            android:id="@+id/moreInfoButton"
+        <TextView
+            android:id="@+id/carDescriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="More Info"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/detail_car_description"
-            android:layout_marginTop="8dp"/>
+            android:textSize="18sp"
+            android:text="Car Description"
+            android:layout_below="@id/carNameTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+        <!-- Details Card View -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/detailsCardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            app:srcCompat="@drawable/add_24"
-            android:importantForAccessibility="no" android:layout_marginTop="16dp" android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp" android:layout_marginBottom="16dp"/>
+            android:layout_below="@id/carDescriptionTextView"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:background="@drawable/purple_bg">
 
-    <!-- Add more UI elements for other car details as needed -->
-</RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Heading -->
+                <TextView
+                    android:id="@+id/detailViewHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:text="Details:"
+                    android:padding="8dp"
+                    android:layout_marginBottom="2dp"/>
+
+                <!-- Line Separator -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- Year -->
+                <TextView
+                    android:id="@+id/yearTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Year: 2022"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Price -->
+                <TextView
+                    android:id="@+id/priceTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Price: $20,000"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Mileage -->
+                <TextView
+                    android:id="@+id/mileageTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Mileage: 30,000 km"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Transmission -->
+                <TextView
+                    android:id="@+id/transmissionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Transmission: Automatic"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Fuel Type -->
+                <TextView
+                    android:id="@+id/fuelTypeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Fuel Type: Petrol"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Color -->
+                <TextView
+                    android:id="@+id/colorTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Color: Silver"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Engine Type -->
+                <TextView
+                    android:id="@+id/engineTypeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Engine Type: 2.0L Inline-4"
+                    android:layout_marginBottom="8dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Performance Card View-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/performanceCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailsCardView"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:background="@drawable/purple_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Performance Header -->
+                <TextView
+                    android:id="@+id/performanceViewHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:text="Performance:"
+                    android:padding="8dp"
+                    android:layout_marginBottom="2dp"/>
+
+                <!-- Line Separator -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginBottom="4dp" /> <!-- Adjust margin here -->
+
+                <!-- Engine Displacement -->
+                <TextView
+                    android:id="@+id/engineDisplacementTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Engine Displacement: "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Horsepower -->
+                <TextView
+                    android:id="@+id/horsepowerTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Horsepower: "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Torque -->
+                <TextView
+                    android:id="@+id/torqueTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Torque: "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Acceleration Time -->
+                <TextView
+                    android:id="@+id/accelerationTimeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="0-60 MPH Acceleration Time: "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Top Speed -->
+                <TextView
+                    android:id="@+id/topSpeedTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Top Speed: "
+                    android:layout_marginBottom="8dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Specifications CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/specificationsCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/performanceCardView"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:background="@drawable/purple_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Specifications Header -->
+                <TextView
+                    android:id="@+id/specificationsViewHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:text="Specifications:"
+                    android:padding="8dp"
+                    android:layout_marginBottom="2dp"/>
+
+                <!-- Line Separator -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginBottom="4dp" /> <!-- Adjust margin here -->
+
+                <!-- Dimensions -->
+                <TextView
+                    android:id="@+id/dimensionsTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Dimensions (Length, Width, Height): "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Weight -->
+                <TextView
+                    android:id="@+id/weightTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Weight: "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Wheel Size -->
+                <TextView
+                    android:id="@+id/wheelSizeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Wheel Size: "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Tire Size -->
+                <TextView
+                    android:id="@+id/tireSizeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Tire Size: "
+                    android:layout_marginBottom="8dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Seller Information CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sellerInformationCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/specificationsCardView"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:background="@drawable/purple_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Seller Information Header -->
+                <TextView
+                    android:id="@+id/sellerInfoViewHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:text="Seller Information:"
+                    android:padding="8dp"
+                    android:layout_marginBottom="2dp"/>
+
+                <!-- Line Separator -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginBottom="4dp" /> <!-- Adjust margin here -->
+
+                <!-- Seller Name -->
+                <TextView
+                    android:id="@+id/sellerNameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Seller Name: "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Contact Number -->
+                <TextView
+                    android:id="@+id/contactNumberTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Contact Number: "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Location -->
+                <TextView
+                    android:id="@+id/locationTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Location: "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Seller Rating -->
+                <TextView
+                    android:id="@+id/sellerRatingTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Seller Rating: "
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Additional Contact Information -->
+                <TextView
+                    android:id="@+id/additionalContactTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:text="Additional Contact Information: "
+                    android:layout_marginBottom="8dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+</ScrollView>
