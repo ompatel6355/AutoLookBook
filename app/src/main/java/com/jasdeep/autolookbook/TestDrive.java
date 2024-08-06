@@ -1,4 +1,4 @@
-package com.example.autolookbook;
+package com.jasdeep.autolookbook;
 
 import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.autolookbook.databinding.ActivityTestDriveBinding;
+import com.jasdeep.autolookbook.databinding.ActivityTestDriveBinding;
 import com.google.gson.annotations.SerializedName;
 import retrofit2.Call;
 import retrofit2.http.GET;

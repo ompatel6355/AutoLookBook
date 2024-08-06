@@ -74,6 +74,7 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="title_activity_test_drive">TestDrive</string>
+    <string name="register">Register</string>
 
     <!--    <string name="about_us_content">Your "About Us" page content goes here. You can include information about your app, its purpose, the development team, acknowledgements, or any other information you'd like to share with your users.</string>-->
     <!--    <string name="navigation_drawer_open">Open navigation drawer</string>-->

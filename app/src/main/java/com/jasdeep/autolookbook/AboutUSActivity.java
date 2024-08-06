@@ -1,9 +1,8 @@
-package com.example.autolookbook;
+package com.jasdeep.autolookbook;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toolbar;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 

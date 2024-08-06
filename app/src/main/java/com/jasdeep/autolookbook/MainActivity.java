@@ -1,6 +1,7 @@
-package com.example.autolookbook;
+package com.jasdeep.autolookbook;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -13,24 +14,45 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private FirebaseAnalytics mFirebaseAnalytics;
+    private FirebaseAuth mAuth;
+    private SharedPreferences sharedPreferences;
+    private static final String PREFS_NAME = "AutoLookBookPrefs";
+    private static final String KEY_REMEMBER_ME = "remember_me";
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
-    ImageView carImage;
-    TextView carName, carDescription;
-    String carList[] = {"Car A","Car B", "Car C", "Car D", "Car E", };
-    int carImages[] = {R.drawable.tesla_model_s, R.drawable.logo, R.drawable.tesla_model_s, R.drawable.logo, R.drawable.tesla_model_s};
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Initialize Firebase
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        mAuth = FirebaseAuth.getInstance();
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
+        // Check if the user is already logged in
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        boolean isRemembered = sharedPreferences.getBoolean(KEY_REMEMBER_ME, false);
+
+        if (currentUser == null && !isRemembered) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
 
         {
             // Generate mock data for the list of cars
@@ -40,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
             CustomCarListAdapter carListAdapter = new CustomCarListAdapter(this, carDetailList);
             listView.setAdapter(carListAdapter);
         }
-
-
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -81,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 // Toast.makeText(MainActivity.this, "Loan options Available", Toast.LENGTH_SHORT).show();
             }
+            else if (itemId == R.id.nav_logout) {
+                // Handle logout
+                logout();
+            }
 
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
@@ -90,6 +114,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    private void logout() {
+        mAuth.signOut();
+
+        // Clear the "Remember Me" state
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove(KEY_REMEMBER_ME);
+        editor.apply();
+
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish(); // Close the MainActivity
     }
 
     @Override

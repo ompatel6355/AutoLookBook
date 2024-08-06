@@ -28,6 +28,9 @@
             android:id="@+id/Test_Drive"
             android:icon="@drawable/testdrive"
             android:title="Test Drive" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout" />
 
 
 

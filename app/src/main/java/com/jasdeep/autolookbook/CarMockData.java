@@ -1,7 +1,4 @@
-package com.example.autolookbook;
-
-import com.example.autolookbook.Car;
-import com.example.autolookbook.R;
+package com.jasdeep.autolookbook;
 
 import java.util.ArrayList;
 import java.util.List;

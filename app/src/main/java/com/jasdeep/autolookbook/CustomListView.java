@@ -1,4 +1,4 @@
-package com.example.autolookbook;
+package com.jasdeep.autolookbook;
 
 import androidx.appcompat.app.AppCompatActivity;
 

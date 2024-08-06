@@ -1,4 +1,4 @@
-package com.example.autolookbook;
+package com.jasdeep.autolookbook;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +9,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.autolookbook.Car;
-import com.example.autolookbook.R;
-import com.example.autolookbook.CarDetailsActivity;
 
 import java.util.List;
 

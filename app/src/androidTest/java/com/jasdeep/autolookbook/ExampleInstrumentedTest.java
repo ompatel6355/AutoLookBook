@@ -1,4 +1,4 @@
-package com.example.autolookbook;
+package com.jasdeep.autolookbook;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;

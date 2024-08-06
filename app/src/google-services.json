@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "137573029336",
+    "project_id": "autolookbook-38644",
+    "storage_bucket": "autolookbook-38644.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137573029336:android:7b199fac006ee06108cead",
+        "android_client_info": {
+          "package_name": "com.jasdeep.autolookbook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHgfsjMyEVl9g5DSZX3XuKLf8LJzWXNS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

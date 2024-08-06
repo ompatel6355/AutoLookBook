@@ -48,6 +48,9 @@
             android:name=".AboutUSActivity"
             android:theme="@style/Theme.AutoLookBook" />
         <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/Theme.AutoLookBook" />
+        <activity
             android:name=".IntroActivity"
             android:exported="true"
             android:theme="@style/Theme.AutoLookBook">
@@ -68,6 +71,16 @@
         <activity
             android:name=".CarDetailsActivity"
             android:theme="@style/Theme.AutoLookBook" />
+
+        <receiver android:name=".CarWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/car_widget_info" /> <!-- Reference to your widget info XML -->
+        </receiver>
     </application>
 
 </manifest>

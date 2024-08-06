@@ -1,11 +1,9 @@
-package com.example.autolookbook;
+package com.jasdeep.autolookbook;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.autolookbook.Car;
-import com.example.autolookbook.R;
 
 public class CarDetailsActivity extends AppCompatActivity {
 
